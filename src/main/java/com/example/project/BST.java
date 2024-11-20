@@ -171,8 +171,9 @@ public class BST<T> {
 				if(current.right != null)
 					current = current.right;
 						else 
-							i++
-						}
+							i++;
+
+		}
 		if(i == 2)
 			return 0;
 		int count = 1;
