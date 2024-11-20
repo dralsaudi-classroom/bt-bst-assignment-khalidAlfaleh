@@ -153,7 +153,10 @@ public class BST<T> {
 		}
 		return p;
 	}
-		public int countNodesIn(int k) {
+	
+	public int countNodesIn(int k) {
+		if(root == null)
+			return 0;
 		int i =0;
 		current = root;
 		while(current.key != k && i != 2){
@@ -168,9 +171,8 @@ public class BST<T> {
 				if(current.right != null)
 					current = current.right;
 						else 
-							i++;
-
-		}
+							i++
+						}
 		if(i == 2)
 			return 0;
 		int count = 1;
