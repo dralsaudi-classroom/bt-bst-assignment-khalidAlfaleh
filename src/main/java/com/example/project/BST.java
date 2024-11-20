@@ -154,15 +154,25 @@ public class BST<T> {
 		return p;
 	}
 		public int countNodesIn(int k) {
+		int i =0;
 		current = root;
-		while(current.key != k){
-			if(k < current.key)
+		while(current.key != k && i != 2){
+			if(k < current.key) {
+				if(current.left != null)
 			current = current.left;
-
+				else 
+					i++;
+				
+			}
 			else if(k > current.key)
-			current = current.right;
+				if(current.right != null)
+					current = current.right;
+						else 
+							i++;
 
 		}
+		if(i == 2)
+			return 0;
 		int count = 1;
 		return count += counter(current.left) + counter(current.right);
 		//throw new UnsupportedOperationException("Not supported yet.");
@@ -171,7 +181,7 @@ public class BST<T> {
 		// the node with key k. Assume that k exists. You are not allowed to call any of the BST methods.
 	}
 
-	public int counter(BSTNode<T> children){
+	private int counter(BSTNode<T> children){
 		if(children != null){
 		int count = 1;
 		return count + counter(children.left) + counter(children.right);
