@@ -99,7 +99,23 @@ public class BT<T> {
 		return current.left == null && current.right == null;
 	}
 	public int countLeaves() {
-		throw new UnsupportedOperationException("Not supported yet.");
+		return counter(root);
+		
+		
+		//throw new UnsupportedOperationException("Not supported yet.");
 		// Write the method countLeafs that should return the number of leaf nodes in the tree. A leaf node is a node that has no children.
+	}
+	
+	private int counter(BTNode<T> child) {
+		if(child != null) {
+			
+		if(child.left != null || child.right != null) {
+			return counter(child.left) + counter(child.right);
+		}
+		else
+			return 1;
+		}
+		return 0;
+		
 	}
 }
